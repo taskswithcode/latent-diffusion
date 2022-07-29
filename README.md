@@ -7,7 +7,7 @@ _To reproduce results, use either the **notebook** or the **Docker container** l
 
 
 ## Google colab notebook
-[Reproducible results of latent diffusion models](https://colab.research.google.com/github/taskswithcode/taming-transformers/blob/master/TWCTamingTransformer.ipynb)  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/taskswithcode/taming-transformers/blob/master/TWCTamingTransformer.ipynb) 
+[Reproducible results of latent diffusion models](https://colab.research.google.com/github/taskswithcode/taming-transformers/blob/master/TWCLatentDiffusion.ipynb)  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/taskswithcode/taming-transformers/blob/master/TWCLatentDiffusion.ipynb) 
 
 **Limitations**:
 
