@@ -112,6 +112,7 @@ def gen_image_using_image_codebook_values(input_file,recons_output_file,model):
             line = int(line.rstrip("\n"))
             arr.append(line)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    #device = torch.device("cpu")
     arr = torch.LongTensor(arr)
     arr = arr.to(device)
     z = model.quantize.get_codebook_entry(arr,None)
@@ -134,6 +135,7 @@ def gen_image_using_image_custom_codes(params):
             line = int(line.rstrip("\n")) - index_correct 
             arr.append(line)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    #device = torch.device("cpu")
     arr = torch.LongTensor(arr)
     arr = arr.to(device)
     z = model.quantize.get_codebook_entry(arr,None)
@@ -153,8 +155,8 @@ def output_image_codes(params):
     output_file = ''.join(output_file.split(".")[:-1]) +  ".txt"
     model = load_model(params)
     x_vqgan = preprocess(PIL.Image.open(input_file).convert("RGB"), target_image_size=params.size, map_dalle=False)
-   # device = torch.device("cpu")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    #device = torch.device("cpu")
     x_vqgan = x_vqgan.to(device)
     x = preprocess_vqgan(x_vqgan)
     z, _, [_, _, indices] = model.encode(x)
@@ -162,14 +164,21 @@ def output_image_codes(params):
         for i in range(len(indices)):
             fp.write(str(indices[i].tolist()) + "\n")
     gen_image_using_image_codebook_values(output_file,recons_output_file,model)
+
+def gen_image_wrapper(params):
+    input_file = params.input
+    output_file = params.output
+    model = load_model(params)
+    gen_image_using_image_codebook_values(input_file,output_file,model)
+
         
 
 def batched_output_image_codes(params):
     input_dir = params.input
     output_dir = params.output
     model = load_model(params)
-    #device = torch.device("cpu")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    #device = torch.device("cpu")
     count = 1
     for file_names in os.listdir(input_dir):
         input_file = os.path.join(input_dir, file_names)
@@ -198,7 +207,7 @@ def main():
     parser.add_argument('-output', action="store", dest="output",default="codebook",help='Output file/dir for codebook value images')
     parser.add_argument('-size', action="store", dest="size",default=384,type=int,help='Expected size. Do not change this default for VQ models')
     results = parser.parse_args()
-    options = "Enter option:\n\t(1) Examine codebook - dump codebook vectors\n\t(2) Visualize each codebook values.Write images into out dir\n\t(3) generate image using custom codes\n\t(4) Output codebook indices for an input image\n\t(5) Output codebook indices for all images in input dir\n\t(0) Quit"
+    options = "Enter option:\n\t(1) Examine codebook - dump codebook vectors as a numpy file\n\t(2) Visualize each codebook values. Write images into out dir\n\t(3) Output codebook indices for an input image\n\t(4) Generate image using  codebook indices \n\t(5) Generate using custom codebook indices (index corrected by 1 for ease) \n\t(6) Output codebook indices for all images in input dir\n\t(0) Quit"
     #output_image_codes(results)
     #recons_using_codebook_values(results)
     #gen_image_using_image_custom_codes(results)
@@ -211,10 +220,12 @@ def main():
         elif (inp == 2):
             recons_using_codebook_values(results)
         elif (inp == 3):
-            gen_image_using_image_custom_codes(results)
-        elif (inp == 4):
             output_image_codes(results)
-        elif (inp == 5):
+        elif (inp == 4):
+            gen_image_wrapper(results)
+        elif (inp == 4):
+            gen_image_using_image_custom_codes(results)
+        elif (inp == 6):
             batched_output_image_codes(results)
         else:
             if (inp == 0):
