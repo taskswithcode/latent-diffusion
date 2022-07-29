@@ -70,37 +70,6 @@ _The notebook downloads a working environment snapshot (made using conda-pack), 
 
 
 
-# Fork to reproduce results of Latent Diffusion Models 
-
-_This fork addresses the problem of Github repos (including their notebooks) breaking over time  due to updates on the dependent packages. This problem is circumvented by taking the environment snapshot of a working version_
-
-_To reproduce results, use either the **notebook** or the **Docker container** links below. The notebook downloads a working environment snapshot (using conda-pack), including all required models. The docker version is essentially the same environment packaged in a container._
-
-
-
-## Google colab notebook
-[Reproducible results of latent diffusion models](https://colab.research.google.com/github/taskswithcode/latent-diffusion/blob/master/TWCLatentDiffusion.ipynb)  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/taskswithcode/latent-diffusion/blob/master/TWCLatentDiffusion.ipynb) 
-
-**Limitations**:
-
-_1. Conda-pack was performed on Ubuntu 20.04.4 LTS. The target OS needs to be the same for the notebook to work. This limitation is not there for the docker container even though conda-pack is used in its creation, given the container abstraction wrapped around it_
-
-_2. Reproducibility is achieved by using conda-packed enviromment which needs to be run prior to execution of any code in the repository. This imposes a level of indirection in interactive coding in the notebook. Edits to python code needs to be made in a python file. The notebook cell merely serves as a command line interface to execute the python file or function._
-
-## Docker container
-
-[![dockeri.co](https://dockeri.co/image/twc2022/taming_transformers_cpu)](https://hub.docker.com/r/twc2022/taming_transformers_cpu)
-
-_**To download the containter**_
-
-_docker pull twc2022/taming_transformers_cpu_
-
-_**Command line interaction with the repository once the image is pulled**_
-
-_docker run -it --rm --entrypoint=/bin/bash twc2022/taming_transformers_cpu:1.0_
-
-
-
 --------------------------------------------
 
 # Latent Diffusion Models
