@@ -1,18 +1,8 @@
 <br/>
 <br/>
 <p align="center">
-  <a href="taming2.png">
-    <img src="taming2.png" alt="Latent diffusion model">
-  </a>
-</p>
-<p align="center">
-  <a href="taming_main.png">
-    <img src="taming_main.png" alt="Latent diffusion model">
-  </a>
-</p>
-<p align="center">
-  <a href="taming3.png">
-    <img src="taming3.png" alt="Latent diffusion model">
+  <a href="latent_diffuson_main.png">
+    <img src="latent_diffuson_main.png" alt="Latent diffusion model">
   </a>
 </p>
 
