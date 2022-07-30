@@ -21,7 +21,7 @@
 - [Original repo](#latent-diffusion-models)
 - [FAQ](#faq)
 - [Google Colab link](https://colab.research.google.com/github/taskswithcode/latent-diffusion/blob/master/TWCLatentDiffusion.ipynb)  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/taskswithcode/latent-diffusion/blob/master/TWCLatentDiffusion.ipynb)
-- [Docker Link - TBD](https://hub.docker.com/r/twc2022/latent_diffusion_model)
+- [Docker Link - TBD]
 
 
 
@@ -40,22 +40,6 @@ _The notebook downloads a working environment snapshot (made using conda-pack), 
 
   _2. Reproducibility is achieved by using conda-packed enviromment which needs to be run prior to execution of any code in the repository. This imposes a level of indirection in interactive coding in the notebook. Edits to python code needs to be made in a python file. The notebook cell merely serves as a command line interface to execute the python file or function._
 
-**3. How do I use the docker image?**
-
-
-  _To download the container_
-
-  ```
-  docker pull twc2022/latent_diffusion_model
-  ```
-
-  _Command line interaction with the repository once the image is pulled_
-
-  ```
-  docker run -it --rm --entrypoint=/bin/bash twc2022/latent_diffusion_model:1.0
-  ```
-
-  [![dockeri.co](https://dockeri.co/image/twc2022/latent_diffusion_model)](https://hub.docker.com/r/twc2022/latent_diffusion_model)
 
 
 
