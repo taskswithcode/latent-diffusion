@@ -14,7 +14,7 @@
 ### What can I use this model for?
   [Latent diffusion model](#latent-diffusion-models) describes a method to convert any image into a discrete codebook _( a first stage step)_. This discrete representation of codes is then used for downstream tasks _(second stage)_ like image generation _(e.g. given an initial sequence of tokens representing an image syntheisize the remaining; or condition image generation based on a label)_.  **_The utility of these discrete representations for discriminative tasks (e.g. classification) is yet to be proven_**
  
- This fork reproduces the first stage - Transforming an input image to a codebook and then reconstructing image back from codebook. The reproduced snapshot is used in the [Google Colab notebook](https://colab.research.google.com/github/taskswithcode/latent-diffusion/blob/master/TWCLatentDiffusion.ipynb) and [docker image TBD](https://hub.docker.com/r/twc2022/latent_diffusion_model)
+ This fork reproduces the first stage - Transforming an input image to a codebook and then reconstructing image back from codebook. It also has utilities to convert images in batches to codebook form, as well as visualize the codebook vectors. The reproduced snapshot is used in the [Google Colab notebook](https://colab.research.google.com/github/taskswithcode/latent-diffusion/blob/master/TWCLatentDiffusion.ipynb) and [docker image TBD](https://hub.docker.com/r/twc2022/latent_diffusion_model)
 
 ### Table of contents
 
