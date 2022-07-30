@@ -7,7 +7,7 @@
 </p>
 
 <h3 align="center">Latent diffusion model - image reconstruction from codebook</h3>
-<h5 align="center"><i>Images above illustrate reconstruction capabilities of different models after transforming input image to a codebook</i></h5>
+<h5 align="center">Images above illustrate reconstruction capabilities of different models after transforming input image to a codebook. <i>Any 384x384 image can be represented as a combination of the 8192 learned vectors and can be used to reconstruct the original image with insignificant perceptual loss</i></h5>
 <br/>
 <br/>
 
